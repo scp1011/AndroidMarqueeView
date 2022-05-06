@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AndroidMarqueeView.iml" filepath="$PROJECT_DIR$/AndroidMarqueeView.iml" />
-      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://$PROJECT_DIR$/marqueeview/marqueeview.iml" filepath="$PROJECT_DIR$/marqueeview/marqueeview.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/AndroidMarqueeView.iml" filepath="$PROJECT_DIR$/.idea/modules/AndroidMarqueeView.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/AndroidMarqueeView.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/AndroidMarqueeView.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/marqueeview/AndroidMarqueeView.marqueeview.iml" filepath="$PROJECT_DIR$/.idea/modules/marqueeview/AndroidMarqueeView.marqueeview.iml" />
     </modules>
   </component>
 </project>

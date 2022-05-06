@@ -20,9 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
         mMarqueeView = (MarqueeView) findViewById(R.id.mMarqueeView);
         mMarqueeViewV2 = (HorizontalMarqueeView) findViewById(R.id.horizontal_marqueeview);
-        mMarqueeView.setText("依据赫兹接触强度计算理论，着重研究了圆柱滚子轴承内、外圈及滚动体的接触应力");
-        mMarqueeViewV2.setMarqueeTv("依据赫兹接触强度计算理论，着重研究了圆柱滚子轴承内、外圈及滚动体的接触应力");
-        mMarqueeViewV2.setAnimDuration(4);
+        mMarqueeView.setText("账号:starlight2131");
+        mMarqueeViewV2.setMarqueeTv("账号:starlight2131");
+        mMarqueeViewV2.setAnimDuration(10);
         mMarqueeViewV2.startAndTextAnim();
 
         findViewById(R.id.start).setOnClickListener(new View.OnClickListener() {

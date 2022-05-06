@@ -8,11 +8,11 @@
 
     <com.dalong.marqueeview.MarqueeView
         android:id="@+id/mMarqueeView"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="50dp"
-        app:direction="right"
+        app:direction="left"
         app:isRepeat="true"
-        app:speed="20"
+        app:speed="200"
         app:startPoint="end"
         app:textSize="16sp"
         app:textcolor="@color/colorAccent" />
@@ -41,10 +41,9 @@
 
     <com.dalong.marqueeview.HorizontalMarqueeView
         android:id="@+id/horizontal_marqueeview"
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
-        android:background="@color/colorAccent"
         app:and_text_anim_left="true"
         app:and_text_desc=""/>
 </LinearLayout>

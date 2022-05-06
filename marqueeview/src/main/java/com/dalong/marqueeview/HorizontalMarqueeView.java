@@ -4,6 +4,9 @@ import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
+import android.support.v7.widget.AppCompatTextView;
 import android.util.AttributeSet;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -18,14 +21,15 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
     private int andTextColor;
     private int andTextSize;
     private int andTextBbackgroundColor;
-    private boolean andTextAnimUp;
-    private boolean andTextAnimDown;
-    private boolean andTextAnimLeft;
-    private boolean andTextAnimRight;
+    protected boolean andTextAnimUp;
+    protected boolean andTextAnimDown;
+    protected boolean andTextAnimLeft;
+    protected boolean andTextAnimRight;
     private int aniDuration;
     private String andTextDesc;
 
-    private TextView andTextView;
+    protected TextView andTextView;
+    private ObjectAnimator mObjectAnimator;
 
     public HorizontalMarqueeView(Context context) {
         this(context, null);
@@ -98,6 +102,20 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
 
     }
 
+    public void setAndTextView(TextView andTextView) {
+        this.andTextView = andTextView;
+        LayoutParams layoutParams = new LayoutParams(LayoutParams.FILL_PARENT, LayoutParams.WRAP_CONTENT);
+        layoutParams.gravity = Gravity.CENTER_VERTICAL;
+        andTextView.setLayoutParams(layoutParams);
+        andTextView.setMaxLines(1);
+        try {
+            removeView(andTextView);
+        }catch (Exception e){
+
+        }
+        addView(andTextView);
+    }
+
     public void setAnimDuration(int duration) {
         this.aniDuration = duration * 1000;
     }
@@ -111,15 +129,19 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
 
     public void startAndTextAnim() {
         if (getWidth() != 0 && getHeight() != 0) {
+            if (mObjectAnimator != null){
+                mObjectAnimator.end();
+            }
             ObjectAnimator objectAnimator = creatCurrentAnimation();
             objectAnimator.setDuration(aniDuration);
             objectAnimator.setInterpolator(new LinearInterpolator());
             objectAnimator.setRepeatCount(ValueAnimator.INFINITE);
             objectAnimator.start();
+            mObjectAnimator = objectAnimator;
         }
     }
 
-    private ObjectAnimator creatCurrentAnimation() {
+    protected ObjectAnimator creatCurrentAnimation() {
         ObjectAnimator objectAnimator = null;
         if (andTextAnimRight) {
             objectAnimator = ObjectAnimator.ofFloat(andTextView, "translationX", -andTextView.getMeasuredWidth(), getWidth());
@@ -138,4 +160,6 @@ public class HorizontalMarqueeView extends HorizontalScrollView {
         super.onSizeChanged(w, h, oldw, oldh);
         startAndTextAnim();
     }
+
+
 }
